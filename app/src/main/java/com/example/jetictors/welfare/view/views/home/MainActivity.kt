@@ -1,7 +1,7 @@
 package com.example.jetictors.welfare.view.views.home
 
-import android.view.View
 import com.example.jetictors.welfare.base.BaseActivity
+import com.example.jetictors.welfare.view.UI.MainUI
 
 /**
  * 描述    : 主页activity
@@ -9,6 +9,17 @@ import com.example.jetictors.welfare.base.BaseActivity
  * time    :  2017/10/30 14:32
  * version : v1.0.1
  */
-class MainActivity{
+class MainActivity : BaseActivity<MainUI>(){
+
+    override fun getAnkoUI(): MainUI {
+        return MainUI()
+    }
+
+    override fun initView() {
+    }
+
+    override fun initData() {
+
+    }
 
 }
