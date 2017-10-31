@@ -4,29 +4,31 @@ import android.support.v4.content.ContextCompat
 import android.view.Gravity
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
-import com.example.jetictors.welfare.view.views.home.girl.GirlFragment
+import com.example.jetictors.welfare.view.views.home.index.TabIosFragment
 import org.jetbrains.anko.*
 
 /**
- * 描述    : 妹子布局
+ * 描述    : ios页布局
  * author  : Jetictors
- * time    :  2017/10/30 17:56
+ * time    :  2017/10/31 14:51
  * version : v1.0.1
  */
-class GirlUI : AnkoComponent<BaseFragment<GirlUI,GirlFragment>>{
+class TabIosUI : AnkoComponent<BaseFragment<TabIosUI, TabIosFragment>> {
 
-    override fun createView(ui: AnkoContext<BaseFragment<GirlUI, GirlFragment>>) = with(ui) {
+    override fun createView(ui: AnkoContext<BaseFragment<TabIosUI, TabIosFragment>>) = with(ui) {
+
         verticalLayout() {
             horizontalGravity = Gravity.CENTER
             verticalGravity = Gravity.CENTER
 
-            textView(R.string.bottom_tab_girl){
+            textView(R.string.tab_title_ios){
                 textSize = 25f
             }.lparams(
                     width = wrapContent,
                     height = wrapContent
             )
         }
+
     }
 
 }

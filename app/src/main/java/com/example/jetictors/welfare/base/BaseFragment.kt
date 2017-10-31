@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import org.jetbrains.anko.AnkoComponent
+import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.support.v4.ctx
 
 /**
  * 描述    : fragment基类
@@ -12,14 +15,17 @@ import android.view.ViewGroup
  * time    :  2017/10/30 14:33
  * version : v1.0.1
  */
-abstract class BaseFragment : Fragment(){
+abstract class BaseFragment<T : AnkoComponent<F>,F> : Fragment(){
+
+    val fragment : F? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (initLayout() == null){
+
+        if (getAnkoUI() == null){
             throw RuntimeException("initLayout() is null !")
         }
 
-        return initLayout()
+        return getAnkoUI().createView(AnkoContext.create(ctx,fragment) as AnkoContext<F>)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -28,10 +34,9 @@ abstract class BaseFragment : Fragment(){
         initData()
     }
 
-    abstract fun initLayout() : View
+    abstract fun getAnkoUI() : T
 
     abstract fun initView()
 
     abstract fun initData()
-
 }

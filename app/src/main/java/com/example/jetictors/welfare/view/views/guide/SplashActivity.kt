@@ -1,10 +1,10 @@
 package com.example.jetictors.welfare.view.views.guide
 
-import android.content.Intent
-import android.util.Log
+import android.os.Handler
 import com.example.jetictors.welfare.base.BaseActivity
 import com.example.jetictors.welfare.view.UI.SplashUI
 import com.example.jetictors.welfare.view.views.home.MainActivity
+import org.jetbrains.anko.startActivity
 
 /**
  * 描述    : 启动页
@@ -19,14 +19,11 @@ class SplashActivity : BaseActivity<SplashUI>(){
     }
 
     override fun initView() {
-        Log.e("SplashActivity","initView()")
-
-        startActivity(Intent(this,MainActivity::class.java))
+        Handler().postDelayed({
+                    startActivity<MainActivity>()
+                },1500)
     }
 
     override fun initData() {
-        Log.e("SplashActivity","initData()")
     }
-
-
 }

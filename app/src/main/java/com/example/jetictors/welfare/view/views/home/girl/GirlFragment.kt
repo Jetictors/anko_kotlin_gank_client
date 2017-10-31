@@ -1,11 +1,8 @@
 package com.example.jetictors.welfare.view.views.home.girl
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.annotation.SuppressLint
 import com.example.jetictors.welfare.base.BaseFragment
-import org.jetbrains.anko.support.v4.UI
+import com.example.jetictors.welfare.view.UI.GirlUI
 
 /**
  * 描述    : 妹子fragment
@@ -13,18 +10,28 @@ import org.jetbrains.anko.support.v4.UI
  * time    :  2017/10/30 14:38
  * version : v1.0.1
  */
-class GirlFragment : BaseFragment(){
+class GirlFragment @SuppressLint("ValidFragment")
+private constructor(): BaseFragment<GirlUI,GirlFragment>(){
 
-    override fun initLayout(): View {
-        return  UI {
+    lateinit var girlUi : GirlUI
 
-        }.view
+    override fun getAnkoUI(): GirlUI {
+        girlUi = GirlUI()
+        return girlUi
     }
 
     override fun initView() {
+
     }
 
     override fun initData() {
+    }
+
+    companion object {
+        fun newInstance(): GirlFragment {
+            val girlFragment = GirlFragment()
+            return girlFragment
+        }
     }
 
 }

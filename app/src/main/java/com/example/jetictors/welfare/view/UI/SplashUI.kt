@@ -1,6 +1,9 @@
 package com.example.jetictors.welfare.view.UI
 
 import android.graphics.Color
+import android.support.v4.content.ContextCompat
+import android.view.Gravity
+import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseActivity
 import org.jetbrains.anko.*
 
@@ -12,17 +15,34 @@ import org.jetbrains.anko.*
  */
 class SplashUI : AnkoComponent<BaseActivity<SplashUI>>{
     override fun createView(ui: AnkoContext<BaseActivity<SplashUI>>) = with(ui) {
-        verticalLayout() {
-            backgroundColor = Color.parseColor("#000000")
+        verticalLayout{
+            verticalGravity = Gravity.CENTER
+            horizontalGravity = Gravity.CENTER
+            setBackgroundColor(ContextCompat.getColor(ctx,R.color.colorPrimary))
 
+            imageView(R.mipmap.ic_launcher){
 
-            textView("Gank"){
-                textSize = 25f
-                textColor = Color.RED
+            }.lparams(wrapContent, wrapContent)
+
+            textView(R.string.splash_hint_1){
+                textSize = 22f
+                textColor = Color.parseColor("#ffffff")
             }.lparams(
-                    width = matchParent,
+                    width = wrapContent,
                     height = wrapContent
-            )
+            ){
+                topMargin = dip(12)
+            }
+
+            textView(R.string.splash_hint_2){
+                textSize = 13f
+                textColor = Color.parseColor("#ffffff")
+            }.lparams(
+                    width = wrapContent,
+                    height = wrapContent
+            ){
+                topMargin = dip(8)
+            }
         }
     }
 }

@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">welfare</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
+    <!-- SplashActivity -->
+    <string name="splash_hint_1">福利、妹子、小视频应有尽有</string>
+    <string name="splash_hint_2">大家好，才是真的好</string>
+
+    <!-- MainActivity -->
+    <string name="bottom_tab_home">首页</string>
+    <string name="bottom_tab_girl">妹子</string>
+    <string name="bottom_tab_video">小视频</string>
+    <string name="bottom_tab_mime">我</string>
+
+    <!-- HomeFragment -->
+    <string name="tab_title_android">Android</string>
+    <string name="tab_title_ios">IOS</string>
+    <string name="tab_title_h5">前端</string>
 </resources>

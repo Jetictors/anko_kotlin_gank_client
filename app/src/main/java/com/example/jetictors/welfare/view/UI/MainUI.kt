@@ -1,7 +1,10 @@
 package com.example.jetictors.welfare.view.UI
 
-import android.graphics.Color
+import android.content.res.ColorStateList
+import android.support.v4.content.ContextCompat
+import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseActivity
+import com.example.jetictors.welfare.constant.ConstantIds
 import org.jetbrains.anko.*
 import org.jetbrains.anko.design.bottomNavigationView
 
@@ -14,25 +17,25 @@ import org.jetbrains.anko.design.bottomNavigationView
 class MainUI : AnkoComponent<BaseActivity<MainUI>> {
 
     override fun createView(ui: AnkoContext<BaseActivity<MainUI>>) = with(ui) {
-        verticalLayout{
-
-
+        relativeLayout{
 
             // 装载fragment
             frameLayout{
-
-                textView("MainActivity"){
-                    textColor = Color.RED
-                    textSize = 15f
-                }.lparams(wrapContent, wrapContent)
-            }.lparams(matchParent, matchParent)
+                id = ConstantIds.mainContentId
+            }.lparams(matchParent, matchParent){
+                above(ConstantIds.mainBottomViewId)
+            }
 
             // 底部栏
-            bottomNavigationView(){
-                backgroundColor = Color.parseColor("#ffffff")
-            }.lparams(matchParent, wrapContent){
-                padding = dip(12)
-            }
+            bottomNavigationView{
+                id = ConstantIds.mainBottomViewId
+                setBackgroundColor(ContextCompat.getColor(ctx,R.color.colorPrimary))
+
+                itemTextColor = ColorStateList.valueOf(ContextCompat.getColor(ctx,R.color.common_clr_white))
+                itemIconTintList = ColorStateList.valueOf(ContextCompat.getColor(ctx,android.R.color.transparent))
+            }.lparams(matchParent, dip(56)){
+                alignParentBottom()
+             }
         }
     }
 }
