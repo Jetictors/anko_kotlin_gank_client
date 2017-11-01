@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#EA6F5A</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="common_clr_white">#ffffff</color>
+    <color name="common_clr_white">@android:color/white</color>
+    <color name="common_clr_black">@android:color/black</color>
+    <color name="common_clr_transparent">@android:color/transparent</color>
 </resources>

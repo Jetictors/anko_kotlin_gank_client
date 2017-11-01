@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">welfare</string>
 
+    <!-- toolbar -->
+    <string name="toolbar_text_back">返回</string>
+
     <!-- SplashActivity -->
     <string name="splash_hint_1">福利、妹子、小视频应有尽有</string>
     <string name="splash_hint_2">大家好，才是真的好</string>

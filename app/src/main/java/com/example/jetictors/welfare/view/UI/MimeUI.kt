@@ -1,10 +1,11 @@
 package com.example.jetictors.welfare.view.UI
 
-import android.support.v4.content.ContextCompat
-import android.view.Gravity
+import android.support.v7.widget.Toolbar
+import android.view.View
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
 import com.example.jetictors.welfare.view.views.home.MimeFragment
+import kotlinx.android.synthetic.main.layout_toolbar.view.*
 import org.jetbrains.anko.*
 
 /**
@@ -17,15 +18,12 @@ class MimeUI : AnkoComponent<BaseFragment<MimeUI, MimeFragment>> {
 
     override fun createView(ui: AnkoContext<BaseFragment<MimeUI, MimeFragment>>) = with(ui) {
         verticalLayout() {
-            horizontalGravity = Gravity.CENTER
-            verticalGravity = Gravity.CENTER
 
-            textView(R.string.bottom_tab_mime){
-                textSize = 25f
-            }.lparams(
-                    width = wrapContent,
-                    height = wrapContent
-            )
+            include<Toolbar>(R.layout.layout_toolbar){
+                toolbar_tv_back.visibility = View.GONE
+                toolbar_tv_title.text = resources.getString(R.string.bottom_tab_mime)
+            }
+
         }
     }
 

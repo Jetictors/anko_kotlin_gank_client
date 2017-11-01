@@ -13,14 +13,13 @@ import com.example.jetictors.welfare.view.UI.GirlUI
 class GirlFragment @SuppressLint("ValidFragment")
 private constructor(): BaseFragment<GirlUI,GirlFragment>(){
 
-    lateinit var girlUi : GirlUI
 
     override fun getAnkoUI(): GirlUI {
-        girlUi = GirlUI()
-        return girlUi
+        return GirlUI()
     }
 
     override fun initView() {
+
 
     }
 

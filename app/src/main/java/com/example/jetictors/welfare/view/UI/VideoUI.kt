@@ -1,10 +1,11 @@
 package com.example.jetictors.welfare.view.UI
 
-import android.support.v4.content.ContextCompat
-import android.view.Gravity
+import android.support.v7.widget.Toolbar
+import android.view.View
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
 import com.example.jetictors.welfare.view.views.home.video.VideoFragment
+import kotlinx.android.synthetic.main.layout_toolbar.view.*
 import org.jetbrains.anko.*
 
 /**
@@ -18,15 +19,10 @@ class VideoUI : AnkoComponent<BaseFragment<VideoUI, VideoFragment>> {
     override fun createView(ui: AnkoContext<BaseFragment<VideoUI, VideoFragment>>) = with(ui) {
 
         verticalLayout() {
-            horizontalGravity = Gravity.CENTER
-            verticalGravity = Gravity.CENTER
-
-            textView(R.string.bottom_tab_video){
-                textSize = 25f
-            }.lparams(
-                    width = wrapContent,
-                    height = wrapContent
-            )
+            include<Toolbar>(R.layout.layout_toolbar){
+                toolbar_tv_back.visibility = View.GONE
+                toolbar_tv_title.text = resources.getString(R.string.bottom_tab_video)
+            }
         }
 
     }

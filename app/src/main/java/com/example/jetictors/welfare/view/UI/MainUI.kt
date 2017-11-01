@@ -30,10 +30,10 @@ class MainUI : AnkoComponent<BaseActivity<MainUI>> {
             bottomNavigationView{
                 id = ConstantIds.mainBottomViewId
                 setBackgroundColor(ContextCompat.getColor(ctx,R.color.colorPrimary))
-
-                itemTextColor = ColorStateList.valueOf(ContextCompat.getColor(ctx,R.color.common_clr_white))
-                itemIconTintList = ColorStateList.valueOf(ContextCompat.getColor(ctx,android.R.color.transparent))
-            }.lparams(matchParent, dip(56)){
+                selectedItemId = 0
+                itemTextColor = ColorStateList.valueOf(ContextCompat.getColor(ctx,R.color.main_bottom_view_tx_color))
+                inflateMenu(R.menu.menu_main_bottom_view)
+            }.lparams(matchParent, wrapContent){
                 alignParentBottom()
              }
         }

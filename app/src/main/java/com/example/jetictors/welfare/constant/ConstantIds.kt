@@ -8,7 +8,10 @@ package com.example.jetictors.welfare.constant
  */
 class ConstantIds{
     companion object {
-        val mainBottomViewId = 0x1235
-        val mainContentId = 0x1234
+        val mainBottomViewId: Int = 0x1235
+        val mainContentId: Int = 0x1234
+        val homeTabLayoutId: Int = 0x1236
+        val homeViewPagerId: Int = 0x1237
+        val girlRvId: Int = 0x1231
     }
 }
