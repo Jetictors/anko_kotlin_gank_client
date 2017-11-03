@@ -4,9 +4,11 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
+import com.example.jetictors.welfare.constant.ConstantIds
 import com.example.jetictors.welfare.view.views.home.girl.GirlFragment
 import kotlinx.android.synthetic.main.layout_toolbar.view.*
 import org.jetbrains.anko.*
+import org.jetbrains.anko.recyclerview.v7.recyclerView
 
 /**
  * 描述    : 妹子布局
@@ -23,6 +25,10 @@ class GirlUI : AnkoComponent<BaseFragment<GirlUI,GirlFragment>>{
                 toolbar_tv_back.visibility = View.GONE
                 toolbar_tv_title.text = resources.getString(R.string.bottom_tab_girl)
             }
+
+            recyclerView(){
+                id = ConstantIds.girlRvId
+            }.lparams(width = matchParent,height = matchParent)
 
         }
     }

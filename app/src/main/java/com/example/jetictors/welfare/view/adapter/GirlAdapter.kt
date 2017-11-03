@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import com.bumptech.glide.Glide
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.modle.bean.JsonResult
 import org.jetbrains.anko.*
@@ -22,6 +23,11 @@ class GirlAdapter (val ctx : Context,private val mData : MutableList<JsonResult>
     }
 
     override fun onBindViewHolder(holder: GirlViewHolder?, position: Int) {
+//        if (holder != null) {
+//            Glide.with(ctx)
+//                    .load(mData.get(position).url)
+//                    .into(holder.img)
+//        }
 
     }
 
@@ -30,20 +36,20 @@ class GirlAdapter (val ctx : Context,private val mData : MutableList<JsonResult>
     }
 
     fun createItemView(): View{
-        val img : ImageView
 
         return with(ctx){
            verticalLayout(){
-                imageView(){
+
+                imageView(R.mipmap.ic_launcher){
                     id = R.id.girl_img
-                }.lparams(wrapContent,dip(270)){
-                    margin = dip(3)
-                }
+                }.lparams(wrapContent,dip(270))
+
            }
         }
     }
 
-    inner class GirlViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class GirlViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView){
+//        var img : ImageView = itemView!!.findViewById(R.id.girl_img)
     }
 
 }

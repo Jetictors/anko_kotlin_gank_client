@@ -5,13 +5,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion  rootProject.ext.compileSdkVersion
+    buildToolsVersion  rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.example.jetictors.welfare"
-        minSdkVersion 17
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion  rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary= true
     }
@@ -24,50 +25,45 @@ android {
 }
 
 dependencies {
+
+    def dependencie = rootProject.ext.dependencies
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
-    implementation 'com.android.support:design:26.0.0-beta1'
+
+    testImplementation dependencie.junit
+    androidTestImplementation dependencie.espressoCore
+
+    implementation 'com.android.support:appcompat-v7:26.0.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:support-vector-drawable:26.0.0-beta1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:0.5'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+    implementation 'com.android.support:support-v4:26.0.2'
+    implementation 'com.android.support:design:26.0.2'
 
-    implementation "org.jetbrains.anko:anko:$anko_version"
-    // Anko Commons
-    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+    implementation dependencie.kotlin
+    implementation dependencie.anko
+    implementation dependencie.anko_commons
+    implementation dependencie.anko_sdk25
+    implementation dependencie.anko_sdk25_coroutines
+    implementation dependencie.anko_appcompat_v7
+    implementation dependencie.anko_appcompat_v7_coroutines
+    implementation dependencie.anko_appcompat_v7_commons
+    implementation dependencie.anko_support_v4
+    implementation dependencie.anko_support_v4_commons
+    implementation dependencie.anko_design
+    implementation dependencie.anko_design_coroutines
+    implementation dependencie.anko_coroutines
+    implementation dependencie.anko_recyclerview_v7
+    implementation dependencie.anko_recyclerview_v7_coroutines
 
-    // Anko Layouts
-    implementation "org.jetbrains.anko:anko-sdk25:$anko_version" // sdk15, sdk19, sdk21, sdk23 are also available
-    implementation "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+    implementation dependencie.okhttp3
+    implementation dependencie.gson
+    implementation dependencie.retrofit
+    implementation dependencie.retrofit_converter_gson
+    implementation dependencie.retrofit_adapter_rxjava
 
-    // Coroutine listeners for Anko Layouts
-    implementation "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
-    implementation "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
+    implementation dependencie.rxAndroid
+    implementation dependencie.rxKotlin
 
-    // Appcompat-v7 (only Anko Commons)
-    compile "org.jetbrains.anko:anko-appcompat-v7-commons:$anko_version"
-
-    // Appcompat-v7 (Anko Layouts)
-    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
-    compile "org.jetbrains.anko:anko-coroutines:$anko_version"
-
-    // Design
-    compile "org.jetbrains.anko:anko-design:$anko_version"
-    compile "org.jetbrains.anko:anko-design-coroutines:$anko_version"
-
-    // Percent
-    compile "org.jetbrains.anko:anko-percent:$anko_version"
-
-    // RecyclerView-v7
-    compile "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
-    compile "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$anko_version"
-
-    // Support-v4 (only Anko Commons)
-    compile "org.jetbrains.anko:anko-support-v4-commons:$anko_version"
-
-    // Support-v4 (Anko Layouts)
-    compile "org.jetbrains.anko:anko-support-v4:$anko_version"
+    implementation dependencie.glide
+    implementation dependencie.okhttp3_integration
 
 }

@@ -14,6 +14,7 @@ import org.jetbrains.anko.*
  * version : v1.0.1
  */
 class SplashUI : AnkoComponent<BaseActivity<SplashUI>>{
+
     override fun createView(ui: AnkoContext<BaseActivity<SplashUI>>) = with(ui) {
         verticalLayout{
             verticalGravity = Gravity.CENTER

@@ -1,0 +1,74 @@
+ext {
+
+    compileSdkVersion        = 26
+    buildToolsVersion        = "26.0.2"
+
+    minSdkVersion            = 17
+    targetSdkVersion         = 26
+
+    versionCode              = 1
+    versionName              = '1.0.0'
+
+    espressoCoreVersion      = '2.2.2'
+    junitVersion             = '4.12'
+
+    // rx
+    rxKotlinVersion          = "2.0.2"
+    rxAndroidVersion         = "2.0.1"
+
+    // retrofit
+    retrofitVersion          = "2.3.0"
+
+    // okHttp
+    OkhttpVersion            =  "3.4.2"
+
+    // gson
+    gsonVersion              = "2.7"
+
+    // glide
+    glideVersion             = "4.0.0"
+
+    //kotlin
+    kotlinVersion            = '1.1.51'
+
+    //anko
+    ankoVersion              = '0.10.0'
+
+    dependencies = [
+            espressoCore                    : "com.android.support.test.espresso:espresso-core:$espressoCoreVersion",
+            junit                           : "junit:junit:$junitVersion",
+
+            kotlin                          : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion",
+
+            //anko
+            anko                            : "org.jetbrains.anko:anko:$ankoVersion",
+            anko_commons                    : "org.jetbrains.anko:anko-commons:$ankoVersion",
+            anko_sdk25                      : "org.jetbrains.anko:anko-sdk25:$ankoVersion",
+            anko_sdk25_coroutines           : "org.jetbrains.anko:anko-sdk25-coroutines:$ankoVersion",
+            anko_appcompat_v7               : "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion",
+            anko_appcompat_v7_coroutines    : "org.jetbrains.anko:anko-appcompat-v7-coroutines:$ankoVersion",
+            anko_appcompat_v7_commons       : "org.jetbrains.anko:anko-appcompat-v7-commons:$ankoVersion",
+            anko_support_v4                 : "org.jetbrains.anko:anko-support-v4:$ankoVersion",
+            anko_support_v4_commons         : "org.jetbrains.anko:anko-support-v4-commons:$ankoVersion",
+            anko_design                     : "org.jetbrains.anko:anko-design:$ankoVersion",
+            anko_design_coroutines          : "org.jetbrains.anko:anko-design-coroutines:$ankoVersion",
+            anko_coroutines                 : "org.jetbrains.anko:anko-coroutines:$ankoVersion",
+            anko_recyclerview_v7            : "org.jetbrains.anko:anko-recyclerview-v7:$ankoVersion",
+            anko_recyclerview_v7_coroutines : "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$ankoVersion",
+
+            // network
+            okhttp3                         : "com.squareup.okhttp3:okhttp:$OkhttpVersion",
+            gson                            : "com.google.code.gson:gson:$gsonVersion",
+            retrofit                        : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofit_converter_gson         : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofit_adapter_rxjava         : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+
+            // rx
+            rxAndroid                       : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            rxKotlin                        : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+
+            // glide
+            glide                           : "com.github.bumptech.glide:glide:$glideVersion",
+            okhttp3_integration             : "com.github.bumptech.glide:okhttp3-integration:$glideVersion",
+    ]
+}

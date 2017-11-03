@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_radio_group"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:weightSum="4"
+    android:background="@color/common_clr_white"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <RadioButton
+        android:id="@+id/btn_tab_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableTop="@drawable/main_bottom_view_tab_home"
+        android:textColor="@color/main_bottom_view_tx_color"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:text="@string/bottom_tab_home"
+        android:layout_weight="1"
+        android:drawablePadding="6dp"/>
+
+    <RadioButton
+        android:id="@+id/btn_tab_girl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableTop="@drawable/main_bottom_view_tab_girl"
+        android:gravity="center"
+        android:text="@string/bottom_tab_girl"
+        android:textColor="@color/main_bottom_view_tx_color"
+        android:textSize="12sp"
+        android:layout_weight="1"
+        android:drawablePadding="6dp"/>
+
+    <RadioButton
+        android:id="@+id/btn_tab_video"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableTop="@drawable/main_bottom_view_tab_home"
+        android:textColor="@color/main_bottom_view_tx_color"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:text="@string/bottom_tab_video"
+        android:layout_weight="1"
+        android:drawablePadding="6dp"/>
+
+    <RadioButton
+        android:id="@+id/btn_tab_mime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableTop="@drawable/main_bottom_view_tab_home"
+        android:textColor="@color/main_bottom_view_tx_color"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:text="@string/bottom_tab_mime"
+        android:layout_weight="1"
+        android:drawablePadding="6dp"/>
+
+</RadioGroup>

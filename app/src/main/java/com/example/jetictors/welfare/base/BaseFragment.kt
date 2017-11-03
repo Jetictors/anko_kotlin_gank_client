@@ -15,7 +15,7 @@ import org.jetbrains.anko.support.v4.ctx
  * time    :  2017/10/30 14:33
  * version : v1.0.1
  */
-abstract class BaseFragment<T : AnkoComponent<F>,F> : Fragment(){
+abstract class BaseFragment<T : AnkoComponent<F>,F> : Fragment() {
 
     val fragment : F? = null
 
