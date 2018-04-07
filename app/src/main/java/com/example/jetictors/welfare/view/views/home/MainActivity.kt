@@ -1,6 +1,8 @@
 package com.example.jetictors.welfare.view.views.home
 
+import android.view.View
 import android.widget.RadioButton
+import android.widget.Toast
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseActivity
 import com.example.jetictors.welfare.constant.ConstantIds
@@ -8,6 +10,7 @@ import com.example.jetictors.welfare.view.UI.MainUI
 import com.example.jetictors.welfare.view.views.home.girl.GirlFragment
 import com.example.jetictors.welfare.view.views.home.index.HomeFragment
 import com.example.jetictors.welfare.view.views.home.video.VideoFragment
+import org.jetbrains.anko.act
 
 /**
  * 描述    : 主页activity
@@ -40,7 +43,6 @@ class MainActivity : BaseActivity<MainUI>(){
         findViewById<RadioButton>(R.id.btn_tab_mime).setOnClickListener{
             supportFragmentManager.beginTransaction().replace(ConstantIds.mainContentId,MimeFragment.newInstance()).commit()
         }
-
     }
 
     override fun initData() {

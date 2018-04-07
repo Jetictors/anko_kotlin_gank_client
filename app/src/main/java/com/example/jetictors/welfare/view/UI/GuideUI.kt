@@ -24,8 +24,8 @@ class GuideUI : AnkoComponent<BaseActivity<GuideUI>>{
             textView("立即体验"){
 
             }.lparams(wrapContent, wrapContent){
-                paddingHorizontal = dip(24)
-                paddingVertical = dip(12)
+                verticalPadding = dip(24)
+                horizontalPadding = dip(12)
             }
         }
     }

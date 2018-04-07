@@ -1,7 +1,6 @@
 package com.example.jetictors.welfare.view.UI
 
-import android.support.v4.content.ContextCompat
-import android.view.Gravity
+import android.widget.LinearLayout
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
 import com.example.jetictors.welfare.view.views.home.index.TabAndroidFragment
@@ -16,16 +15,8 @@ import org.jetbrains.anko.*
 class TabAndroidUI : AnkoComponent<BaseFragment<TabAndroidUI,TabAndroidFragment>>{
 
     override fun createView(ui: AnkoContext<BaseFragment<TabAndroidUI, TabAndroidFragment>>) = with(ui) {
-        verticalLayout() {
-            horizontalGravity = Gravity.CENTER
-            verticalGravity = Gravity.CENTER
-
-            textView(R.string.tab_title_android){
-                textSize = 25f
-            }.lparams(
-                    width = wrapContent,
-                    height = wrapContent
-            )
+        verticalLayout{
+            include<LinearLayout>(R.layout.layout_common_rv)
         }
     }
 

@@ -11,6 +11,7 @@ import com.example.jetictors.welfare.presenter.GirlPresenter
 import com.example.jetictors.welfare.presenter.contract.IGirlContract
 import com.example.jetictors.welfare.view.UI.GirlUI
 import com.example.jetictors.welfare.view.adapter.GirlAdapter
+import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.find
 import org.jetbrains.anko.support.v4.toast
 
@@ -23,34 +24,32 @@ import org.jetbrains.anko.support.v4.toast
 class GirlFragment @SuppressLint("ValidFragment")
 private constructor() : BaseFragment<GirlUI,GirlFragment>(),IGirlContract.IGirlView{
 
-    override var presenter: IGirlContract.IGirlPresenter
-        get() = GirlPresenter(this)
-        set(value) {}
+    private lateinit var mGirlRv : RecyclerView
+    private lateinit var mData : MutableList<JsonResult>
+    private val mPresenter : GirlPresenter by lazy { GirlPresenter() }
 
-    lateinit var mGirlRv : RecyclerView
-    lateinit var mData : MutableList<JsonResult>
+    init {
+        mPresenter.attachView(this)
+    }
 
     override fun getAnkoUI(): GirlUI {
         return GirlUI()
     }
 
     override fun initView() {
-        mGirlRv = find<RecyclerView>(ConstantIds.girlRvId)
+        mGirlRv = find(ConstantIds.girlRvId)
         mData = ArrayList()
 
         mGirlRv.layoutManager = GridLayoutManager(activity,2)
-        mGirlRv.adapter = GirlAdapter(activity,mData)
+        mGirlRv.adapter = GirlAdapter(ctx,mData)
     }
 
     override fun initData() {
-        presenter.getGirlData("Android",10,1)
+        mPresenter.getGirlData("Android",10,1)
     }
 
     companion object {
-        fun newInstance(): GirlFragment {
-            val girlFragment = GirlFragment()
-            return girlFragment
-        }
+        fun newInstance() = GirlFragment()
     }
 
     override fun getGirlDataSuccess(mData: MutableList<JsonResult>) {
@@ -62,6 +61,12 @@ private constructor() : BaseFragment<GirlUI,GirlFragment>(),IGirlContract.IGirlV
 
     override fun getGirlDataFailed(message: String) {
         toast(getString(R.string.app_name))
+    }
+
+    override fun showLoading() {
+    }
+
+    override fun dissmissLoading() {
     }
 
 }

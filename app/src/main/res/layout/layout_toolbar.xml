@@ -23,7 +23,7 @@
             android:textColor="@android:color/white"
             android:text="@string/toolbar_text_back"
             android:layout_marginLeft="8dp"
-            android:drawableLeft="@mipmap/ic_back"
+            android:drawableLeft="@mipmap/ic_launcher"
             android:gravity="center" />
 
         <TextView

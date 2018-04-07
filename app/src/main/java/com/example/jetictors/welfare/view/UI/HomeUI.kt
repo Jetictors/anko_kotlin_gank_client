@@ -19,9 +19,9 @@ import org.jetbrains.anko.support.v4.viewPager
  */
 class HomeUI : AnkoComponent<BaseFragment<HomeUI,HomeFragment>>{
 
-    override fun createView(ui: AnkoContext<BaseFragment<HomeUI, HomeFragment>>) = with(ui) {
+    override fun createView(ui: AnkoContext<BaseFragment<HomeUI,HomeFragment>>) = with(ui) {
 
-        verticalLayout(){
+        verticalLayout{
 
             include<Toolbar>(R.layout.layout_toolbar){
                 toolbar_tv_back.visibility = View.GONE

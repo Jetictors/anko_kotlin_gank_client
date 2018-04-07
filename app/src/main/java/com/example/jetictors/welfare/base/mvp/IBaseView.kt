@@ -1,13 +1,14 @@
 package com.example.jetictors.welfare.base.mvp
 
 /**
- * 描述    : view层基类
+ * 描述    : view层基类接口
  * author  : Jetictors
  * time    :  2017/11/3 13:04
  * version : v1.0.1
  */
-interface IBaseView<P>{
+interface IBaseView{
 
-    var presenter : P
+    fun showLoading()
 
+    fun dissmissLoading()
 }

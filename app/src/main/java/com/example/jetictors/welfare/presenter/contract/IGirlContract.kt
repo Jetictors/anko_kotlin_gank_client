@@ -1,6 +1,5 @@
 package com.example.jetictors.welfare.presenter.contract
 
-import com.example.jetictors.welfare.base.mvp.IBaseModle
 import com.example.jetictors.welfare.base.mvp.IBasePresenter
 import com.example.jetictors.welfare.base.mvp.IBaseView
 import com.example.jetictors.welfare.modle.bean.BaseBean
@@ -15,22 +14,16 @@ import io.reactivex.Flowable
  */
 interface IGirlContract{
 
-    interface IGirlView : IBaseView<IGirlContract.IGirlPresenter> {
+    interface IGirlView : IBaseView {
 
         fun getGirlDataSuccess(mData : MutableList<JsonResult>)
 
         fun getGirlDataFailed(message : String)
     }
 
-    interface IGirlPresenter : IBasePresenter {
+    interface IGirlPresenter {
 
         fun getGirlData(type : String, number : Int, page : Int)
-
-    }
-
-    interface IGirlModle : IBaseModle{
-
-        fun getGirlData() : Flowable<BaseBean<List<JsonResult>>>
 
     }
 }

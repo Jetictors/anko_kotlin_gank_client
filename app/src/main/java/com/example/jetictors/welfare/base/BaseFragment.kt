@@ -15,26 +15,25 @@ import org.jetbrains.anko.support.v4.ctx
  * time    :  2017/10/30 14:33
  * version : v1.0.1
  */
-abstract class BaseFragment<T : AnkoComponent<F>,F> : Fragment() {
+abstract class BaseFragment<out T : AnkoComponent<F>,F> : Fragment() {
 
-    val fragment : F? = null
+    val mFragment : F? = null
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (getAnkoUI() == null){
             throw RuntimeException("initLayout() is null !")
         }
 
-        return getAnkoUI().createView(AnkoContext.create(ctx,fragment) as AnkoContext<F>)
+        return getAnkoUI()?.createView(AnkoContext.create(ctx,mFragment) as AnkoContext<F>)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initView()
 
         initData()
     }
 
-    abstract fun getAnkoUI() : T
+    abstract fun getAnkoUI() : T?
 
     abstract fun initView()
 

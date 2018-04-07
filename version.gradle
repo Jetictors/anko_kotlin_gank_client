@@ -1,10 +1,10 @@
 ext {
 
-    compileSdkVersion        = 26
+    compileSdkVersion        = 27
     buildToolsVersion        = "26.0.2"
 
     minSdkVersion            = 17
-    targetSdkVersion         = 26
+    targetSdkVersion         = 27
 
     versionCode              = 1
     versionName              = '1.0.0'
@@ -29,10 +29,13 @@ ext {
     glideVersion             = "4.0.0"
 
     //kotlin
-    kotlinVersion            = '1.1.51'
+    kotlinVersion            = '1.2.30'
 
     //anko
-    ankoVersion              = '0.10.0'
+    ankoVersion              = '0.10.4'
+
+    // adapter
+    BRVAHVersion             = '2.9.30'
 
     dependencies = [
             espressoCore                    : "com.android.support.test.espresso:espresso-core:$espressoCoreVersion",
@@ -43,18 +46,19 @@ ext {
             //anko
             anko                            : "org.jetbrains.anko:anko:$ankoVersion",
             anko_commons                    : "org.jetbrains.anko:anko-commons:$ankoVersion",
-            anko_sdk25                      : "org.jetbrains.anko:anko-sdk25:$ankoVersion",
-            anko_sdk25_coroutines           : "org.jetbrains.anko:anko-sdk25-coroutines:$ankoVersion",
+//            anko_sdk25                      : "org.jetbrains.anko:anko-sdk25:$ankoVersion",
+//            anko_sdk25_coroutines           : "org.jetbrains.anko:anko-sdk25-coroutines:$ankoVersion",
             anko_appcompat_v7               : "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion",
-            anko_appcompat_v7_coroutines    : "org.jetbrains.anko:anko-appcompat-v7-coroutines:$ankoVersion",
-            anko_appcompat_v7_commons       : "org.jetbrains.anko:anko-appcompat-v7-commons:$ankoVersion",
+//            anko_appcompat_v7_coroutines    : "org.jetbrains.anko:anko-appcompat-v7-coroutines:$ankoVersion",
+//            anko_appcompat_v7_commons       : "org.jetbrains.anko:anko-appcompat-v7-commons:$ankoVersion",
             anko_support_v4                 : "org.jetbrains.anko:anko-support-v4:$ankoVersion",
-            anko_support_v4_commons         : "org.jetbrains.anko:anko-support-v4-commons:$ankoVersion",
+//            anko_support_v4_commons         : "org.jetbrains.anko:anko-support-v4-commons:$ankoVersion",
             anko_design                     : "org.jetbrains.anko:anko-design:$ankoVersion",
-            anko_design_coroutines          : "org.jetbrains.anko:anko-design-coroutines:$ankoVersion",
-            anko_coroutines                 : "org.jetbrains.anko:anko-coroutines:$ankoVersion",
+//            anko_design_coroutines          : "org.jetbrains.anko:anko-design-coroutines:$ankoVersion",
+//            anko_coroutines                 : "org.jetbrains.anko:anko-coroutines:$ankoVersion",
             anko_recyclerview_v7            : "org.jetbrains.anko:anko-recyclerview-v7:$ankoVersion",
-            anko_recyclerview_v7_coroutines : "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$ankoVersion",
+//            anko_recyclerview_v7_coroutines : "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$ankoVersion",
+            BaseRecyclerViewAdapterHelper   : "com.github.CymChad:BaseRecyclerViewAdapterHelper:$BRVAHVersion",
 
             // network
             okhttp3                         : "com.squareup.okhttp3:okhttp:$OkhttpVersion",

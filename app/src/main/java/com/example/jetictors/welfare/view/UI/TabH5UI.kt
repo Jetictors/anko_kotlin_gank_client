@@ -1,6 +1,5 @@
 package com.example.jetictors.welfare.view.UI
 
-import android.support.v4.content.ContextCompat
 import android.view.Gravity
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment

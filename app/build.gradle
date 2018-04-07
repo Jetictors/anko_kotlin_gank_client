@@ -33,26 +33,27 @@ dependencies {
     testImplementation dependencie.junit
     androidTestImplementation dependencie.espressoCore
 
-    implementation 'com.android.support:appcompat-v7:26.0.2'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:support-v4:26.0.2'
-    implementation 'com.android.support:design:26.0.2'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
 
     implementation dependencie.kotlin
     implementation dependencie.anko
     implementation dependencie.anko_commons
-    implementation dependencie.anko_sdk25
-    implementation dependencie.anko_sdk25_coroutines
+//    implementation dependencie.anko_sdk25
+//    implementation dependencie.anko_sdk25_coroutines
     implementation dependencie.anko_appcompat_v7
-    implementation dependencie.anko_appcompat_v7_coroutines
-    implementation dependencie.anko_appcompat_v7_commons
+//    implementation dependencie.anko_appcompat_v7_coroutines
+//    implementation dependencie.anko_appcompat_v7_commons
     implementation dependencie.anko_support_v4
-    implementation dependencie.anko_support_v4_commons
+//    implementation dependencie.anko_support_v4_commons
     implementation dependencie.anko_design
-    implementation dependencie.anko_design_coroutines
-    implementation dependencie.anko_coroutines
+//    implementation dependencie.anko_design_coroutines
+//    implementation dependencie.anko_coroutines
     implementation dependencie.anko_recyclerview_v7
-    implementation dependencie.anko_recyclerview_v7_coroutines
+//    implementation dependencie.anko_recyclerview_v7_coroutines
+
+    implementation dependencie.BaseRecyclerViewAdapterHelper
 
     implementation dependencie.okhttp3
     implementation dependencie.gson

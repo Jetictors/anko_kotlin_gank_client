@@ -16,8 +16,8 @@ import org.jetbrains.anko.*
 class MainUI : AnkoComponent<BaseActivity<MainUI>> {
 
     override fun createView(ui: AnkoContext<BaseActivity<MainUI>>) = with(ui) {
-        relativeLayout{
 
+        relativeLayout{
             // 装载fragment
             frameLayout{
                 id = ConstantIds.mainContentId
@@ -39,4 +39,5 @@ class MainUI : AnkoComponent<BaseActivity<MainUI>> {
             }
         }
     }
+
 }

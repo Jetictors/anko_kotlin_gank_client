@@ -1,6 +1,5 @@
 package com.example.jetictors.welfare.view.views.home.index
 
-import android.annotation.SuppressLint
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
@@ -23,13 +22,18 @@ import org.jetbrains.anko.support.v4.find
  * time    :  2017/10/30 14:37
  * version : v1.0.1
  */
-class HomeFragment @SuppressLint("ValidFragment")
-private constructor() : BaseFragment<HomeUI,HomeFragment>(){
+class HomeFragment : BaseFragment<HomeUI,HomeFragment>(){
 
-    lateinit var mTabLayout : TabLayout
-    lateinit var mViewPager : ViewPager
-    lateinit var mFragmentList : MutableList<Fragment>
-    lateinit var mTitles : MutableList<String>
+    private lateinit var mTabLayout : TabLayout
+    private lateinit var mViewPager : ViewPager
+    private var mFragmentList : MutableList<Fragment> = mutableListOf()
+    private val mTitles : Array<String> by lazy {
+        arrayOf(
+                ctx.getString(R.string.tab_title_android),
+                ctx.getString(R.string.tab_title_ios),
+                ctx.getString(R.string.tab_title_h5)
+        )
+    }
 
     override fun getAnkoUI(): HomeUI {
         return HomeUI()
@@ -39,15 +43,11 @@ private constructor() : BaseFragment<HomeUI,HomeFragment>(){
 
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
-        mFragmentList = ArrayList()
-        mTitles = ArrayList()
-
         mTabLayout = find<TabLayout>(ConstantIds.homeTabLayoutId)
         mViewPager = find<ViewPager>(ConstantIds.homeViewPagerId)
 
         initTabLayout()
         initViewPager()
-        initListener()
 
         mTabLayout.setupWithViewPager(mViewPager)
     }
@@ -55,7 +55,7 @@ private constructor() : BaseFragment<HomeUI,HomeFragment>(){
     private fun initViewPager() {
         mViewPager.adapter = object : FragmentPagerAdapter(childFragmentManager){
             override fun getItem(position: Int): Fragment {
-                return mFragmentList.get(position)
+                return mFragmentList[position]
             }
 
             override fun getCount(): Int {
@@ -63,7 +63,7 @@ private constructor() : BaseFragment<HomeUI,HomeFragment>(){
             }
 
             override fun getPageTitle(position: Int): CharSequence {
-                return mTitles.get(position)
+                return mTitles[position]
             }
         }
     }
@@ -77,28 +77,16 @@ private constructor() : BaseFragment<HomeUI,HomeFragment>(){
         mTabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(ctx,R.color.common_clr_white))
     }
 
-    private fun initListener(){
-
-    }
-
     override fun initData() {
+        mFragmentList.add(TabAndroidFragment.newInstance())
+        mFragmentList.add(TabIosFragment.newInstance())
+        mFragmentList.add(TabH5Fragment.newInstance())
 
-        mTitles.add(0,getString(R.string.tab_title_android))
-        mTitles.add(1,getString(R.string.tab_title_ios))
-        mTitles.add(2,getString(R.string.tab_title_h5))
-
-        mFragmentList.add(0,TabAndroidFragment.newInstance())
-        mFragmentList.add(1,TabIosFragment.newInstance())
-        mFragmentList.add(2,TabH5Fragment.newInstance())
-
-        mViewPager.adapter.notifyDataSetChanged()
+        mViewPager.adapter?.notifyDataSetChanged()
     }
 
     companion object {
-        fun newInstance(): HomeFragment {
-            val homeFragment = HomeFragment()
-            return homeFragment
-        }
+        fun newInstance() = HomeFragment()
     }
 
 }
