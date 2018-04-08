@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#EA6F5A</color>
+        <color name="colorPrimary">#EA6F5A</color>
     <color name="colorPrimaryDark">#EA6F5A</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="common_clr_white">@android:color/white</color>
     <color name="common_clr_black">@android:color/black</color>
     <color name="common_clr_transparent">@android:color/transparent</color>
+    <color name="clr_eeeeee">#eeeeee</color>
 </resources>

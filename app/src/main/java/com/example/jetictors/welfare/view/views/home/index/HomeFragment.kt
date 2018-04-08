@@ -43,8 +43,8 @@ class HomeFragment : BaseFragment<HomeUI,HomeFragment>(){
 
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
-        mTabLayout = find<TabLayout>(ConstantIds.homeTabLayoutId)
-        mViewPager = find<ViewPager>(ConstantIds.homeViewPagerId)
+        mTabLayout = find(ConstantIds.homeTabLayoutId)
+        mViewPager = find(ConstantIds.homeViewPagerId)
 
         initTabLayout()
         initViewPager()
@@ -78,9 +78,9 @@ class HomeFragment : BaseFragment<HomeUI,HomeFragment>(){
     }
 
     override fun initData() {
-        mFragmentList.add(TabAndroidFragment.newInstance())
-        mFragmentList.add(TabIosFragment.newInstance())
-        mFragmentList.add(TabH5Fragment.newInstance())
+        mFragmentList.add(CommonTabFragment.newInstance(CommonTabFragment.TAB_TYPE_VALUE_ANDROID))
+        mFragmentList.add(CommonTabFragment.newInstance(CommonTabFragment.TAB_TYPE_VALUE_IOS))
+        mFragmentList.add(CommonTabFragment.newInstance(CommonTabFragment.TAB_TYPE_VALUE_WEB))
 
         mViewPager.adapter?.notifyDataSetChanged()
     }

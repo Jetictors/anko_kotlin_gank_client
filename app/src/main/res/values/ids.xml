@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="girl_img" type="id"/>
+    <item name="iv_user" type="id"/>
+    <item name="tx_who" type="id"/>
+    <item name="tx_type" type="id"/>
+    <item name="tx_time" type="id"/>
+    <item name="tx_desc" type="id"/>
+
+    <item name="iv_girl_img" type="id"/>
+    <item name="tx_girl_time" type="id"/>
 </resources>

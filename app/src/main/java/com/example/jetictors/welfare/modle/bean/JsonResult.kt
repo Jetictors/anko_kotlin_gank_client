@@ -19,6 +19,7 @@ data class JsonResult(
         val used: Boolean,
         val who: String
 ){
+
     /**
      * 判断images这个字段存不存在
      */

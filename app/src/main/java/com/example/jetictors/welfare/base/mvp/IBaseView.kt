@@ -10,5 +10,5 @@ interface IBaseView{
 
     fun showLoading()
 
-    fun dissmissLoading()
+    fun dismissLoading()
 }

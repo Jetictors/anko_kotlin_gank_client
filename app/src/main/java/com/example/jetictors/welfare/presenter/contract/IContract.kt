@@ -2,9 +2,7 @@ package com.example.jetictors.welfare.presenter.contract
 
 import com.example.jetictors.welfare.base.mvp.IBasePresenter
 import com.example.jetictors.welfare.base.mvp.IBaseView
-import com.example.jetictors.welfare.modle.bean.BaseBean
 import com.example.jetictors.welfare.modle.bean.JsonResult
-import io.reactivex.Flowable
 
 /**
  * 描述    : girl页面契约类
@@ -12,18 +10,18 @@ import io.reactivex.Flowable
  * time    :  2017/11/2 13:19
  * version : v1.0.1
  */
-interface IGirlContract{
+interface IContract {
 
-    interface IGirlView : IBaseView {
+    interface IView : IBaseView {
 
-        fun getGirlDataSuccess(mData : MutableList<JsonResult>)
+        fun getDataSuccess(mData : MutableList<JsonResult>)
 
-        fun getGirlDataFailed(message : String)
+        fun getDataFailed(message : String)
     }
 
-    interface IGirlPresenter {
+    interface IPresenter : IBasePresenter<IView> {
 
-        fun getGirlData(type : String, number : Int, page : Int)
+        fun getData(type : String, number : Int, page : Int)
 
     }
 }

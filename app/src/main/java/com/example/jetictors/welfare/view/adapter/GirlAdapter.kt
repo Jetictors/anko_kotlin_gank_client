@@ -2,7 +2,9 @@ package com.example.jetictors.welfare.view.adapter
 
 import android.content.Context
 import android.support.annotation.LayoutRes
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
@@ -21,25 +23,51 @@ import org.jetbrains.anko.*
  * time    :  2017/11/1 15:04
  * version : v1.0.1
  */
-class GirlAdapter (val ctx : Context, data: MutableList<JsonResult>)
-    : BaseQuickAdapter<JsonResult,BaseViewHolder>(data) {
+class GirlAdapter(val ctx: Context, data: MutableList<JsonResult>)
+    : BaseQuickAdapter<JsonResult, BaseViewHolder>(data) {
 
     override fun convert(helper: BaseViewHolder?, item: JsonResult?) {
 
+        helper?.let {
+            it.setText(R.id.tx_girl_time, item?.getCreateTime() ?: "")
+
+            val girlImg = it.getView<ImageView>(R.id.iv_girl_img)
+            Glide.with(ctx)
+                    .asBitmap()
+                    .load(item?.url)
+                    .into(girlImg)
+        }
+
     }
 
-    override fun createBaseViewHolder(view: View?): BaseViewHolder {
+    override fun onCreateDefViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder {
         return BaseViewHolder(createItemView())
     }
 
-    fun createItemView(): View{
+    private fun createItemView(): View {
 
-        return with(ctx){
-           verticalLayout{
-                imageView(R.mipmap.ic_launcher){
-                    id = R.id.girl_img
-                }.lparams(wrapContent,dip(270))
-           }
+        return with(ctx) {
+            relativeLayout {
+
+                lparams(matchParent, dip(256))
+
+                imageView {
+                    id = R.id.iv_girl_img
+                    scaleType = ImageView.ScaleType.FIT_XY
+                }.lparams(matchParent, matchParent)
+
+                textView {
+                    id = R.id.tx_girl_time
+                    textColor = ContextCompat.getColor(ctx,R.color.colorAccent)
+                    textSize = 13f
+                }.lparams(wrapContent, wrapContent) {
+                    alignParentBottom()
+                    alignParentRight()
+                    rightPadding = dip(12)
+                    bottomPadding = dip(12)
+                }
+
+            }
         }
     }
 

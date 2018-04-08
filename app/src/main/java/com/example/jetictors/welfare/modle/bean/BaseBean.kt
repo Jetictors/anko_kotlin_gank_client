@@ -6,4 +6,4 @@ package com.example.jetictors.welfare.modle.bean
  * time    :  2017/11/1 15:18
  * version : v1.0.1
  */
-class BaseBean<T>(val error : Boolean, val result : T)
+class BaseBean<out T>(val error : Boolean, val results : T)

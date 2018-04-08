@@ -20,7 +20,7 @@ ext {
     retrofitVersion          = "2.3.0"
 
     // okHttp
-    OkhttpVersion            =  "3.4.2"
+    okHttpVersion            =  "3.4.2"
 
     // gson
     gsonVersion              = "2.7"
@@ -61,7 +61,8 @@ ext {
             BaseRecyclerViewAdapterHelper   : "com.github.CymChad:BaseRecyclerViewAdapterHelper:$BRVAHVersion",
 
             // network
-            okhttp3                         : "com.squareup.okhttp3:okhttp:$OkhttpVersion",
+            okhttp3                         : "com.squareup.okhttp3:okhttp:$okHttpVersion",
+            okhttpLoggingInterceptor        : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
             gson                            : "com.google.code.gson:gson:$gsonVersion",
             retrofit                        : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retrofit_converter_gson         : "com.squareup.retrofit2:converter-gson:$retrofitVersion",

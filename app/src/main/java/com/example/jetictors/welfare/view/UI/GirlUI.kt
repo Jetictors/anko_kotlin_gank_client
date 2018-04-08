@@ -2,6 +2,7 @@ package com.example.jetictors.welfare.view.UI
 
 import android.support.v7.widget.Toolbar
 import android.view.View
+import android.widget.LinearLayout
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
 import com.example.jetictors.welfare.constant.ConstantIds
@@ -19,17 +20,14 @@ import org.jetbrains.anko.recyclerview.v7.recyclerView
 class GirlUI : AnkoComponent<BaseFragment<GirlUI,GirlFragment>>{
 
     override fun createView(ui: AnkoContext<BaseFragment<GirlUI, GirlFragment>>) = with(ui) {
-        verticalLayout() {
+        verticalLayout{
 
             include<Toolbar>(R.layout.layout_toolbar){
                 toolbar_tv_back.visibility = View.GONE
                 toolbar_tv_title.text = resources.getString(R.string.bottom_tab_girl)
             }
 
-            recyclerView(){
-                id = ConstantIds.girlRvId
-            }.lparams(width = matchParent,height = matchParent)
-
+            include<LinearLayout>(R.layout.layout_common_rv)
         }
     }
 
