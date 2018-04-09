@@ -8,4 +8,11 @@
 
     <item name="iv_girl_img" type="id"/>
     <item name="tx_girl_time" type="id"/>
+
+    <item name="tx_user_name" type="id"/>
+    <item name="iv_user_head" type="id"/>
+    <item name="tx_user_info" type="id"/>
+    <item name="tx_user_github" type="id"/>
+    <item name="tx_user_juejin" type="id"/>
+    <item name="tx_user_blog" type="id"/>
 </resources>

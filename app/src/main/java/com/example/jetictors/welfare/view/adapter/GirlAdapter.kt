@@ -33,8 +33,10 @@ class GirlAdapter(val ctx: Context, data: MutableList<JsonResult>)
 
             val girlImg = it.getView<ImageView>(R.id.iv_girl_img)
             Glide.with(ctx)
-                    .asBitmap()
                     .load(item?.url)
+                    .asBitmap()
+                    .placeholder(R.color.clr_eeeeee)
+                    .error(R.color.clr_eeeeee)
                     .into(girlImg)
         }
 
@@ -44,6 +46,9 @@ class GirlAdapter(val ctx: Context, data: MutableList<JsonResult>)
         return BaseViewHolder(createItemView())
     }
 
+    /**
+     * 创建itemView
+     */
     private fun createItemView(): View {
 
         return with(ctx) {

@@ -33,6 +33,9 @@ class CommonTabAdapter(val ctx: Context, mData: MutableList<JsonResult>)
         }
     }
 
+    /**
+     * 创建itemView
+     */
     private fun createItemView(): View {
         return with(ctx) {
             verticalLayout {

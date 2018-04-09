@@ -66,6 +66,6 @@ dependencies {
     implementation dependencie.rxKotlin
 
     implementation dependencie.glide
-    implementation dependencie.okhttp3_integration
+//    implementation dependencie.okhttp3_integration
 
 }

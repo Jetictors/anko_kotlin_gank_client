@@ -12,10 +12,17 @@
     <string name="bottom_tab_home">首页</string>
     <string name="bottom_tab_girl">妹子</string>
     <string name="bottom_tab_video">小视频</string>
-    <string name="bottom_tab_mime">我</string>
+    <string name="bottom_tab_mime">我的</string>
 
     <!-- HomeFragment -->
     <string name="tab_title_android">Android</string>
     <string name="tab_title_ios">IOS</string>
     <string name="tab_title_h5">前端</string>
+
+    <!-- MimeFragment -->
+    <string name="tx_user_name">Jetictors</string>
+    <string name="tx_user_info">一名热爱编程、技术，喜爱分享的小码农</string>
+    <string name="tx_github">我的Github</string>
+    <string name="tx_blog">我的博客园</string>
+    <string name="tx_juejin">我的掘金</string>
 </resources>

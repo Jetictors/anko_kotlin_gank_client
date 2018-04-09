@@ -27,7 +27,7 @@ class GirlFragment : BaseFragment<GirlUI,GirlFragment>(), IContract.IView{
     private lateinit var mData : MutableList<JsonResult>
     private lateinit var mAdapter : GirlAdapter
     private val mPresenter : BasePresenter by lazy { BasePresenter() }
-
+    private var page = 1
     init {
         mPresenter.attachView(this)
     }
@@ -46,19 +46,31 @@ class GirlFragment : BaseFragment<GirlUI,GirlFragment>(), IContract.IView{
                 R.color.common_clr_white,false, CommonItemDecoration.HORIZONTAL))
         this.common_rv.addItemDecoration(CommonItemDecoration(ctx,dip(8),
                 R.color.common_clr_white,false,CommonItemDecoration.VERTICAL))
+
+        initListener()
     }
 
     override fun initData() {
         mPresenter.getData("福利",20,1)
+        this.common_swipe_rfl.isRefreshing = true
     }
 
+    private fun initListener() {
+        this.common_swipe_rfl.setOnRefreshListener {
+            mPresenter.getData("福利",20,1)
+        }
+    }
+
+
     override fun getDataSuccess(mData: MutableList<JsonResult>) {
+        this.common_swipe_rfl.isRefreshing = false
         if (!mData.isEmpty()){
             mAdapter.setNewData(mData)
         }
     }
 
     override fun getDataFailed(message: String) {
+        this.common_swipe_rfl.isRefreshing = false
         toast(getString(R.string.app_name))
     }
 
