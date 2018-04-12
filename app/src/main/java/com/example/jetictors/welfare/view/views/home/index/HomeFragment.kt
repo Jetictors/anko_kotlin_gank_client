@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity
 
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
-import com.example.jetictors.welfare.constant.ConstantIds
 import com.example.jetictors.welfare.view.UI.HomeUI
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import org.jetbrains.anko.support.v4.ctx
@@ -43,8 +42,8 @@ class HomeFragment : BaseFragment<HomeUI,HomeFragment>(){
 
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
-        mTabLayout = find(ConstantIds.homeTabLayoutId)
-        mViewPager = find(ConstantIds.homeViewPagerId)
+        mTabLayout = find(R.id.home_tab_layout)
+        mViewPager = find(R.id.home_view_pager)
 
         initTabLayout()
         initViewPager()

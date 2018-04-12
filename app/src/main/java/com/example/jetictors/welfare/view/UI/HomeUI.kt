@@ -4,7 +4,6 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
-import com.example.jetictors.welfare.constant.ConstantIds
 import com.example.jetictors.welfare.view.views.home.index.HomeFragment
 import kotlinx.android.synthetic.main.layout_toolbar.view.*
 import org.jetbrains.anko.*
@@ -29,11 +28,11 @@ class HomeUI : AnkoComponent<BaseFragment<HomeUI,HomeFragment>>{
             }
 
             tabLayout{
-                id = ConstantIds.homeTabLayoutId
+                id = R.id.home_tab_layout
             }.lparams(matchParent, wrapContent)
 
-            viewPager(){
-                id = ConstantIds.homeViewPagerId
+            viewPager{
+                id = R.id.home_view_pager
             }.lparams(matchParent, matchParent)
 
         }

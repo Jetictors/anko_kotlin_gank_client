@@ -18,15 +18,6 @@ open class BasePresenter<V : IBaseView> : IBasePresenter<V>{
         this.mView = mView
     }
 
-    override fun detachView() {
-        mView = null
-
-        //保证view结束时取消所有正在执行的订阅
-        if (!mCompositeDisposable.isDisposed){
-            mCompositeDisposable.clear()
-        }
-    }
-
     fun getV() : V{
         if (mView == null){
             throw MvpViewNotAttachedException()
@@ -39,4 +30,12 @@ open class BasePresenter<V : IBaseView> : IBasePresenter<V>{
     private class MvpViewNotAttachedException internal constructor()
         : RuntimeException(" v can to be null !")
 
+    override fun detachView() {
+        mView = null
+
+        //保证view结束时取消所有正在执行的订阅1
+        if (!mCompositeDisposable.isDisposed){
+            mCompositeDisposable.clear()
+        }
+    }
 }

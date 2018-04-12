@@ -21,7 +21,7 @@ abstract class BaseFragment<out T : AnkoComponent<F>,F> : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (getAnkoUI() == null){
-            throw RuntimeException("initLayout() is null !")
+            TODO("initLayout() is null !")
         }
 
         return getAnkoUI()?.createView(AnkoContext.create(ctx,mFragment) as AnkoContext<F>)
@@ -29,7 +29,6 @@ abstract class BaseFragment<out T : AnkoComponent<F>,F> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initView()
-
         initData()
     }
 

@@ -1,5 +1,6 @@
 package com.example.jetictors.welfare.view.views.home.index
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.example.jetictors.welfare.R
@@ -9,10 +10,13 @@ import com.example.jetictors.welfare.presenter.BasePresenter
 import com.example.jetictors.welfare.presenter.contract.IContract
 import com.example.jetictors.welfare.view.UI.CommonTabUI
 import com.example.jetictors.welfare.view.adapter.CommonTabAdapter
+import com.example.jetictors.welfare.view.views.home.WebActivity
 import com.example.jetictors.welfare.view.widgets.CommonItemDecoration
 import kotlinx.android.synthetic.main.layout_common_rv.*
+import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.dip
+import org.jetbrains.anko.support.v4.toast
 
 /**
  * 描述    : android页fragment
@@ -22,7 +26,6 @@ import org.jetbrains.anko.support.v4.dip
  */
 class CommonTabFragment : BaseFragment<CommonTabUI, CommonTabFragment>(), IContract.IView{
 
-    private lateinit var mData : MutableList<JsonResult>
     private lateinit var mAdapter : CommonTabAdapter
     private val mPresenter : BasePresenter by lazy { BasePresenter() }
     private var page : Int = 1
@@ -38,10 +41,8 @@ class CommonTabFragment : BaseFragment<CommonTabUI, CommonTabFragment>(), IContr
 
     override fun initView() {
 
-        mData = mutableListOf()
-
         this.common_rv.layoutManager = LinearLayoutManager(ctx)
-        mAdapter = CommonTabAdapter(ctx,mData)
+        mAdapter = CommonTabAdapter(ctx, mutableListOf())
         this.common_rv.adapter = mAdapter
         this.common_rv.addItemDecoration(CommonItemDecoration(ctx,dip(8),
                 R.color.common_clr_transparent,false,CommonItemDecoration.VERTICAL))
@@ -68,7 +69,13 @@ class CommonTabFragment : BaseFragment<CommonTabUI, CommonTabFragment>(), IContr
 
     private fun initListener() {
         mAdapter.setOnItemClickListener { adapter, view, position ->
-
+            val loadUrl = (adapter.data[position] as JsonResult).url
+            val mTitle = (adapter.data[position] as JsonResult).source
+            act.startActivity(
+                    Intent().apply { putExtra("WebUrl",loadUrl) }
+                            .apply { putExtra("Title",mTitle) }
+                            .apply { setClass(act, WebActivity::class.java) }
+            )
         }
 
         this.common_swipe_rfl.setOnRefreshListener {
@@ -85,12 +92,18 @@ class CommonTabFragment : BaseFragment<CommonTabUI, CommonTabFragment>(), IContr
 
     override fun getDataFailed(message: String) {
         this.common_swipe_rfl.isRefreshing = false
+        toast(message)
     }
 
     override fun showLoading() {
     }
 
     override fun dismissLoading() {
+    }
+
+    override fun onDestroyView() {
+        mPresenter.detachView()
+        super.onDestroyView()
     }
 
     companion object {

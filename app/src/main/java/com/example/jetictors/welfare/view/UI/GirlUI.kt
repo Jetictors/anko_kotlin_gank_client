@@ -5,11 +5,9 @@ import android.view.View
 import android.widget.LinearLayout
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
-import com.example.jetictors.welfare.constant.ConstantIds
 import com.example.jetictors.welfare.view.views.home.girl.GirlFragment
 import kotlinx.android.synthetic.main.layout_toolbar.view.*
 import org.jetbrains.anko.*
-import org.jetbrains.anko.recyclerview.v7.recyclerView
 
 /**
  * 描述    : 妹子布局

@@ -1,13 +1,12 @@
 package com.example.jetictors.welfare.view.views.home.girl
 
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
-import com.example.jetictors.welfare.constant.ConstantIds
 import com.example.jetictors.welfare.modle.bean.JsonResult
 import com.example.jetictors.welfare.presenter.BasePresenter
 import com.example.jetictors.welfare.presenter.contract.IContract
+import com.example.jetictors.welfare.view.UI.EmptyViewUI
 import com.example.jetictors.welfare.view.UI.GirlUI
 import com.example.jetictors.welfare.view.adapter.GirlAdapter
 import com.example.jetictors.welfare.view.widgets.CommonItemDecoration
@@ -28,6 +27,7 @@ class GirlFragment : BaseFragment<GirlUI,GirlFragment>(), IContract.IView{
     private lateinit var mAdapter : GirlAdapter
     private val mPresenter : BasePresenter by lazy { BasePresenter() }
     private var page = 1
+
     init {
         mPresenter.attachView(this)
     }
@@ -59,6 +59,8 @@ class GirlFragment : BaseFragment<GirlUI,GirlFragment>(), IContract.IView{
         this.common_swipe_rfl.setOnRefreshListener {
             mPresenter.getData("福利",20,1)
         }
+
+        mAdapter.emptyView = EmptyViewUI(ctx).emptyView()
     }
 
 
@@ -71,13 +73,18 @@ class GirlFragment : BaseFragment<GirlUI,GirlFragment>(), IContract.IView{
 
     override fun getDataFailed(message: String) {
         this.common_swipe_rfl.isRefreshing = false
-        toast(getString(R.string.app_name))
+        toast(message)
     }
 
     override fun showLoading() {
     }
 
     override fun dismissLoading() {
+    }
+
+    override fun onDestroyView() {
+        mPresenter.detachView()
+        super.onDestroyView()
     }
 
     companion object {

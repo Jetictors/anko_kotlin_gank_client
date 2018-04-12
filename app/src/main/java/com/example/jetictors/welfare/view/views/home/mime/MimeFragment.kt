@@ -1,14 +1,14 @@
 package com.example.jetictors.welfare.view.views.home
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseFragment
 import com.example.jetictors.welfare.view.UI.MimeUI
 import com.example.jetictors.welfare.view.widgets.GlideCircleTransform
+import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.find
 
@@ -18,8 +18,7 @@ import org.jetbrains.anko.support.v4.find
  * time    :  2017/10/30 16:29
  * version : v1.0.1
  */
-class MimeFragment @SuppressLint("ValidFragment")
-private constructor(): BaseFragment<MimeUI,MimeFragment>(){
+class MimeFragment : BaseFragment<MimeUI,MimeFragment>(){
 
     private lateinit var mIvUserHeader : ImageView
 
@@ -49,26 +48,33 @@ private constructor(): BaseFragment<MimeUI,MimeFragment>(){
 
         // github
         find<TextView>(R.id.tx_user_github).setOnClickListener {
-
+            act.startActivity(
+                    Intent().apply { putExtra("WebUrl","https://github.com/Jetictors") }
+                            .apply { putExtra("Title",(it as TextView).text) }
+                            .apply { setClass(act,WebActivity::class.java) }
+            )
         }
 
         // blog
         find<TextView>(R.id.tx_user_blog).setOnClickListener {
-
+            act.startActivity(
+                    Intent().apply { putExtra("WebUrl", "https://www.cnblogs.com/Jetictors/") }
+                            .apply { putExtra("Title",(it as TextView).text) }
+                            .apply { setClass(act,WebActivity::class.java) }
+            )
         }
 
         // juejin
         find<TextView>(R.id.tx_user_juejin).setOnClickListener {
-
+            act.startActivity(
+                    Intent().apply { putExtra("WebUrl","https://juejin.im/user/5709f5798ac247004c295d95") }
+                            .apply { putExtra("Title",(it as TextView).text) }
+                            .apply { setClass(act,WebActivity::class.java) }
+            )
         }
-
     }
 
     companion object {
-        fun newInstance(): MimeFragment {
-            val mimeFragment = MimeFragment()
-            return mimeFragment
-        }
+        fun newInstance() = MimeFragment()
     }
-
 }

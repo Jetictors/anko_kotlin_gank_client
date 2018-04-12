@@ -20,8 +20,9 @@ class SplashActivity : BaseActivity<SplashUI>(){
 
     override fun initView() {
         Handler().postDelayed({
-                    startActivity<MainActivity>()
-                },1500)
+            startActivity<MainActivity>()
+            this.finish()
+        },1500)
     }
 
     override fun initData() {

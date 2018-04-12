@@ -25,4 +25,7 @@
     <string name="tx_github">我的Github</string>
     <string name="tx_blog">我的博客园</string>
     <string name="tx_juejin">我的掘金</string>
+
+    <!-- EmptyView -->
+    <string name="tx_empty">暂无数据</string>
 </resources>

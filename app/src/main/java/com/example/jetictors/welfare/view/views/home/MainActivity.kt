@@ -1,16 +1,12 @@
 package com.example.jetictors.welfare.view.views.home
 
-import android.view.View
 import android.widget.RadioButton
-import android.widget.Toast
 import com.example.jetictors.welfare.R
 import com.example.jetictors.welfare.base.BaseActivity
-import com.example.jetictors.welfare.constant.ConstantIds
 import com.example.jetictors.welfare.view.UI.MainUI
 import com.example.jetictors.welfare.view.views.home.girl.GirlFragment
 import com.example.jetictors.welfare.view.views.home.index.HomeFragment
 import com.example.jetictors.welfare.view.views.home.video.VideoFragment
-import org.jetbrains.anko.act
 
 /**
  * 描述    : 主页activity
@@ -26,22 +22,22 @@ class MainActivity : BaseActivity<MainUI>(){
 
     override fun initView() {
 
-        supportFragmentManager.beginTransaction().replace(ConstantIds.mainContentId,HomeFragment.newInstance()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.main_content,HomeFragment.newInstance()).commit()
 
         findViewById<RadioButton>(R.id.btn_tab_home).setOnClickListener{
-             supportFragmentManager.beginTransaction().replace(ConstantIds.mainContentId,HomeFragment.newInstance()).commit()
+             supportFragmentManager.beginTransaction().replace(R.id.main_content,HomeFragment.newInstance()).commit()
         }
 
         findViewById<RadioButton>(R.id.btn_tab_girl).setOnClickListener{
-            supportFragmentManager.beginTransaction().replace(ConstantIds.mainContentId,GirlFragment.newInstance()).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.main_content,GirlFragment.newInstance()).commit()
         }
 
         findViewById<RadioButton>(R.id.btn_tab_video).setOnClickListener{
-            supportFragmentManager.beginTransaction().replace(ConstantIds.mainContentId,VideoFragment.newInstance()).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.main_content,VideoFragment.newInstance()).commit()
         }
 
         findViewById<RadioButton>(R.id.btn_tab_mime).setOnClickListener{
-            supportFragmentManager.beginTransaction().replace(ConstantIds.mainContentId,MimeFragment.newInstance()).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.main_content,MimeFragment.newInstance()).commit()
         }
     }
 

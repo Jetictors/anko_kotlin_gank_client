@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- MainActivity -->
+    <item name="main_content" type="id"/>
+
+    <!-- HomeFragment -->
+    <item name="home_tab_layout" type="id"/>
+    <item name="home_view_pager" type="id"/>
+
+    <!-- CommonTabFragment -->
     <item name="iv_user" type="id"/>
     <item name="tx_who" type="id"/>
     <item name="tx_type" type="id"/>
     <item name="tx_time" type="id"/>
     <item name="tx_desc" type="id"/>
 
+    <!-- GirlFragment -->
     <item name="iv_girl_img" type="id"/>
     <item name="tx_girl_time" type="id"/>
 
+    <!-- MimeFragment -->
     <item name="tx_user_name" type="id"/>
     <item name="iv_user_head" type="id"/>
     <item name="tx_user_info" type="id"/>
     <item name="tx_user_github" type="id"/>
     <item name="tx_user_juejin" type="id"/>
     <item name="tx_user_blog" type="id"/>
+
+    <!-- WebActivity -->
+    <item name="web_view" type="id"/>
+
+    <!-- EmptyView -->
+    <item name="iv_hint" type="id"/>
+    <item name="btn_empty" type="id"/>
+
 </resources>

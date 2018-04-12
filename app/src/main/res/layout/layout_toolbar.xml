@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:paddingRight="16dp">
+        android:paddingEnd="16dp">
 
         <TextView
             android:id="@+id/toolbar_tv_back"
@@ -22,8 +22,8 @@
             android:textSize="14sp"
             android:textColor="@android:color/white"
             android:text="@string/toolbar_text_back"
-            android:layout_marginLeft="8dp"
-            android:drawableLeft="@mipmap/ic_launcher"
+            android:drawableStart="@mipmap/ic_back"
+            android:drawablePadding="6dp"
             android:gravity="center" />
 
         <TextView
@@ -39,8 +39,7 @@
             android:id="@+id/toolbar_iv_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher_round"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:visibility="gone" />
 
     </RelativeLayout>
